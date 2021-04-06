@@ -9,8 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: papeloto/action-zip@v1
+      - uses: thedoctor0/zip-release@master
         with:
-          files: /
-          recursive: true
-          dest: result.zip
+          filename: result.zip
+
+      - name: Upload Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "release.zip"
+          token: ${{ secrets.GITHUB_TOKEN }}
