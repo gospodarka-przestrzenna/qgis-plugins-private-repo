@@ -14,7 +14,9 @@ jobs:
           filename: MongoConnector.zip
 
       - name: Upload Release
-        uses: ncipollo/release-action@v1
+        uses: svenstaro/upload-release-action@v2
         with:
-          artifacts: MongoConnector.zip
-          token: ${{ secrets.GITHUB_TOKEN }}
+          file: MongoConnector.zip
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: "v0.0.0"
+          overwrite: true
