@@ -23,3 +23,12 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref }}
           overwrite: true
+          
+      - name: Upload Release
+        uses: kumarabd/trigger-remote-action@v1.0.0
+        with:
+          repo: "gospodarka-przestrzenna/qgis-plugins.xml"
+          version: "latest"
+          name: "Publish Plugin"
+          token: ${{ secrets.GITHUB_TOKEN }}  
+          
