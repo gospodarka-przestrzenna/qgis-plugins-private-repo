@@ -1,11 +1,11 @@
 name: Publish Pugin
 
 on:
-  push:
-    tags:
-      - '*'
-  release:
-    types: [published]
+#  push:
+#    tags:
+#      - '*'
+#  release:
+#    types: [published]
   workflow_dispatch:
 jobs:
   zip-files:
@@ -16,19 +16,19 @@ jobs:
         with:
           filename: MongoConnector.zip
 
-      - name: Upload Release
-        uses: svenstaro/upload-release-action@v2
-        with:
-          file: MongoConnector.zip
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ github.ref }}
-          overwrite: true
+#      - name: Upload Release
+#        uses: svenstaro/upload-release-action@v2
+#        with:
+#          file: MongoConnector.zip
+#          repo_token: ${{ secrets.GITHUB_TOKEN }}
+#          tag: ${{ github.ref }}
+#          overwrite: true
           
       - name: Upload Release
         uses: kumarabd/trigger-remote-action@v1.0.0
         with:
           repo: "gospodarka-przestrzenna/qgis-plugins.xml"
           version: "latest"
-          name: "Publish Plugin"
+          name: "Plugins"
           token: ${{ secrets.GITHUB_TOKEN }}  
           
